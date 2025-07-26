@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Noee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente decorativa similar a "Bohemian Cassidy" -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    /* Estilo base y estructura */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #ffe6f0, #74cdf0);
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      color: #505ce6;
+    }
+
+    /* Recuadro para la cita bíblica */
+    .message-box {
+      background-color: #c3dce6;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    /* Texto dentro del recuadro */
+    .message-box p {
+      font-size: 1.3em;
+      margin: 0;
+    }
+
+    /* Título principal (declaración de amor) */
+    h1 {
+      font-size: 1.9em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Subtítulo con la pregunta */
+    h3 {
+      font-weight: normal;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    /* Contenedor del botón */
+    .buttons {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    /* Botón "Sí" */
+    #yesBtn {
+      padding: 12px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: #74cdf0;
+      color: white;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    #yesBtn:hover {
+      background-color: #5dbbdb;
+    }
+
+    /* Mensaje que aparece después de pulsar "Sí" */
+    #message {
+      margin-top: 30px;
+      font-size: 1.4em;
+      text-align: center;
+    }
+
+    /* Campo para completar "Noeee mi ___" */
+    #extraInput {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* Campo de entrada de texto */
+    #extraInput input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 220px;
+      text-align: center;
+      font-size: 1.1em;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* Texto completo: Noeee mi ___ */
+    #completedText {
+      margin-top: 15px;
+      font-size: 1.4em;
+    }
+
+    /* Ajuste responsivo para celular */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6em;
+      }
+      h3 {
+        font-size: 1.3em;
+      }
+      #yesBtn {
+        font-size: 1em;
+        padding: 10px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cita bíblica -->
+  <div class="message-box">
+    <p>
+      Sean completamente humildes y amables; sean pacientes, soportándose unos a otros con amor. Esfuércense por mantener la unidad del Espíritu en el vínculo de la paz.
+    </p>
+  </div>
+
+  <!-- Declaración principal -->
+  <h1>Me gustas desde hace mucho tiempo y me gustaría compartir el mismo contigo, ahora ya como alguien que camine al lado tuyo y que te sirva como apoyo para amenuar la carga del dia a dia</h1>
+
+  <!-- Pregunta -->
+  <h3>¿Te gustaría compartir el sentimiento conmigo?, Te gustaria ser mi Cuchurrumin (Novia)</h3>
+
+  <!-- Botón "Sí" -->
+  <div class="buttons">
+    <button id="yesBtn">Sí</button>
+  </div>
+
+  <!-- Mensaje después del "Sí" -->
+  <div id="message"></div>
+
+  <!-- Entrada para completar "Noeee mi ___" -->
+  <div id="extraInput">
+    <p>Completá esta frase: <strong>Noeee mi...</strong></p>
+    <input type="text" id="nameInput" placeholder="Para WhatsApp" />
+    <div id="completedText"></div>
+  </div>
+
+  <!-- Lógica JavaScript -->
+  <script>
+    // Selección de elementos del DOM
+    const yesBtn = document.getElementById('yesBtn');
+    const message = document.getElementById('message');
+    const extraInput = document.getElementById('extraInput');
+    const nameInput = document.getElementById('nameInput');
+    const completedText = document.getElementById('completedText');
+
+    // Al hacer clic en "Sí"
+    yesBtn.addEventListener('click', () => {
+      message.innerHTML = "Me encanta compartir y aprender de vos y sería lo mejor que sea así siempre... y lo siento pero claramente no iba a poner boton de No jajaj";
+      extraInput.style.display = 'block';
+    });
+
+    // Cuando se escribe en el campo de texto
+    nameInput.addEventListener('input', () => {
+      const value = nameInput.value.trim();
+      if (value) {
+        completedText.textContent = `Noeee mi ${value} `;
+      } else {
+        completedText.textContent = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
