@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Noee </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #ffe6f0, #74cdf0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      color: #505ce6;
+    }
+
+    .message-box {
+      background-color: #a1daf0;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .message-box p {
+      font-size: 1.1em;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-weight: normal;
+      text-align: center;
+    }
+
+    .buttons {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #74cdf0;
+      color: white;
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    #noBtn {
+      background-color: #eee;
+      color: #333;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    #extraInput {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #extraInput input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 200px;
+      text-align: center;
+      font-size: 1em;
+    }
+
+    #completedText {
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5em;
+      }
+      button {
+        font-size: 0.95em;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message-box">
+    <p>
+      Sean completamente humildes y amables; sean pacientes, soportándose unos a otros con amor. Esfuércense por mantener la unidad del Espíritu en el vínculo de la paz.
+    </p>
+  </div>
+
+  <h1>Me gustas desde hace mucho tiempo y me gustaria compartir el mismo contigo, ahora ya como alguien que camine al lado tuyo</h1>
+  <h3>¿Te gustaría compartir el sentimiento conmigo?</h3>
+
+  <div class="buttons">
+    <button id="yesBtn">Sí</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <div id="message"></div>
+
+  <div id="extraInput">
+    <p>Completá esta frase: <strong>Noeee mi...</strong></p>
+    <input type="text" id="nameInput" placeholder="Para Whatsapp" />
+    <div id="completedText"></div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const message = document.getElementById('message');
+    const extraInput = document.getElementById('extraInput');
+    const nameInput = document.getElementById('nameInput');
+    const completedText = document.getElementById('completedText');
+
+    yesBtn.addEventListener('click', () => {
+      message.innerHTML = "Me encanta compartir y aprender de vos y sería lo mejor que sea así siempre 💙";
+      extraInput.style.display = 'block';
+    });
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - noBtn.clientWidth - 30);
+      const y = Math.random() * (window.innerHeight - noBtn.clientHeight - 30);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
+
+    nameInput.addEventListener('input', () => {
+      const value = nameInput.value.trim();
+      if (value) {
+        completedText.textContent = `Noeee mi ${value} 💖`;
+      } else {
+        completedText.textContent = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
